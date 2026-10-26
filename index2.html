@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт стиральных машин | Частный мастер без наценок</title>
+    <meta name="description" content="Ремонт стиральных машин на дому. Дзержинск, Фаниполь, Сморгонь, Воложин, Молодечно. Выезд по согласованию, бесплатная диагностика, гарантия качества.">
+    
+    <!-- Подключение современных шрифтов и иконок -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --primary-dark: #0a355c;
+            --accent: #ff6b00;
+            --accent-hover: #e65100;
+            --bg-light: #f4f7f6;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --telegram: #0088cc;
+            --viber: #7360f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* --- Кнопки --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* --- Шапка (Sticky Header) --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 16px 0;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .header-phone {
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-phone:hover {
+            color: var(--accent);
+        }
+
+        .header-schedule,
+        .header-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 76, 129, 0.08);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .header-schedule i,
+        .header-location i {
+            color: var(--accent);
+        }
+
+        .header-location {
+            background: rgba(255, 107, 0, 0.1);
+        }
+
+        .header-location .cities {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header-location .city-item {
+            white-space: nowrap;
+        }
+
+        .header-location .city-separator {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .header-messengers {
+            display: flex;
+            gap: 12px;
+        }
+
+        .messenger-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .messenger-link.telegram {
+            background-color: var(--telegram);
+        }
+
+        .messenger-link.viber {
+            background-color: var(--viber);
+        }
+
+        .messenger-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 76, 129, 0.95) 0%, rgba(10, 53, 92, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 100px 0 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(15, 76, 129, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(15, 76, 129, 0.08);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Pricing Section --- */
+        .pricing {
+            padding: 100px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .pricing-card {
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-top: 16px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        /* --- About Section --- */
+        .about {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .about-list {
+            list-style: none;
+            text-align: left;
+            display: grid;
+            gap: 20px;
+        }
+
+        .about-list li {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            font-size: 1.05rem;
+        }
+
+        .about-list li i {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* --- FAQ Section --- */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 16px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(15, 76, 129, 0.2);
+        }
+
+        .faq-item summary {
+            padding: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 60px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .faq-item[open] {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-item p {
+            padding: 0 24px 24px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        .contact h2 {
+            color: var(--white);
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(15, 76, 129, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            margin-top: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer-schedule {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+
+        .footer-schedule i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        .footer-cities {
+            display: inline-block;
+            background: rgba(255, 107, 0, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+
+        .footer-cities i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* --- Floating Call Button (Mobile) --- */
+        .floating-call {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background-color: #22c55e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.05rem; }
+            h2 { font-size: 1.75rem; }
+            .header-phone span { display: none; }
+            .header-schedule { display: none; }
+            .header-location .cities { display: none; }
+            .header-location .cities-short { display: inline; }
+            .header-messengers { gap: 8px; }
+            .messenger-link { width: 36px; height: 36px; font-size: 1rem; }
+            .contact-form { padding: 24px; }
+            .floating-call { display: flex; }
+        }
+
+        @media (min-width: 769px) {
+            .header-location .cities-short { display: none; }
+            .floating-call { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                Частный Мастер
+            </a>
+            <div class="header-contacts">
+                <div class="header-location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="cities">
+                        <span class="city-item">Дзержинск</span>
+                        <span class="city-separator">•</span>
+                        <span class="city-item">Фаниполь</span>
+                        <span class="city-separator">•</span>
+                        <span class="city-item">Сморгонь</span>
+                        <span class="city-separator">•</span>
+                        <span class="city-item">Воложин</span>
+                        <span class="city-separator">•</span>
+                        <span class="city-item">Молодечно</span>
+                    </span>
+                    <span class="cities-short">Дзержинск, Фаниполь, Сморгонь, Воложин, Молодечно</span>
+                </div>
+                <div class="header-schedule">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Прием заявок на сайте: 24/7 | Звонки: 9:00-20:00</span>
+                </div>
+                <div class="header-messengers">
+                    <a href="https://t.me/+375295507818" class="messenger-link telegram" title="Написать в Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="viber://chat?number=%2B375295507818" class="messenger-link viber" title="Написать в Viber">
+                        <i class="fa-brands fa-viber"></i>
+                    </a>
+                </div>
+                <a href="tel:+375295507818" class="header-phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+375 (29) 550-78-18</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран (Hero) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Дзержинск • Фаниполь • Сморгонь • Воложин • Молодечно</div>
+            <h1>Ремонт стиральных машин<br>без наценок и посредников</h1>
+            <p>Выезд по согласованию, согласование точной цены до начала работ и оплата только после проверки. Даю гарантию качества.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">
+                    <i class="fa-solid fa-calendar-check"></i> Вызвать мастера
+                </a>
+                <a href="#pricing" class="btn btn-outline">
+                    <i class="fa-solid fa-list"></i> Смотреть услуги
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <h2>Понятные условия и надежный ремонт</h2>
+            <p class="section-subtitle">Частный мастер — это выездной сервис по ремонту стиральных машин на дому, который работает без посреднических наценок.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Точная диагностика</h3>
+                    <p>Диагностика проводится бесплатно при условии ремонта. Определяю точную причину и называю стоимость до начала работ.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h3>Честная цена</h3>
+                    <p>Работаю без посредников, колл-центров и офисных сборов. Названная цена фиксируется и не меняется.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Оригинальные запчасти</h3>
+                    <p>Использую качественные комплектующие. Ходовые запчасти всегда с собой для ремонта за один визит.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Гарантия качества</h3>
+                    <p>Никакой предоплаты: вы оплачиваете результат только после ремонта и совместной проверки техники.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Виды работ</h2>
+            <p class="section-subtitle">Стоимость рассчитывается индивидуально после диагностики и согласуется до начала работ</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Выезд и диагностика на дому</h3>
+                    <div class="price">Бесплатно</div>
+                    <p class="price-note">При согласии на ремонт</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Замена нагревательного элемента (ТЭНа)</h3>
+                    <div class="price">По договорённости</div>
+                    <p class="price-note">С учетом стоимости работы и новой запчасти</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Устранение засора, чистка фильтра</h3>
+                    <div class="price">По договорённости</div>
+                    <p class="price-note">Точная сумма озвучивается до начала работ</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Ремонт привода, помпы, замка люка или бака</h3>
+                    <div class="price">По договорённости</div>
+                    <p class="price-note">Без скрытых доплат и навязанных услуг</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Замена подшипников и крестовины бака</h3>
+                    <div class="price">По договорённости</div>
+                    <p class="price-note">С учетом стоимости работы и новых запчастей</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Замена щёток двигателя</h3>
+                    <div class="price">По договорённости</div>
+                    <p class="price-note">С учетом стоимости работы и новых комплектующих</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О мастере -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Почему клиенты доверяют мне</h2>
+                <p class="about-text">Я занимаюсь ремонтом стиральных машин профессионально: работал в крупных сервисных центрах, но ушел в частную практику, чтобы не накручивать цены ради содержания офиса и посредников, а работать на собственную репутацию.</p>
+                
+                <ul class="about-list">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div><strong>Оплата только после ремонта:</strong> Запускаем тестовый цикл стирки, слива и отжима, вы убеждаетесь в исправности техники.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div><strong>Точная цена:</strong> Сразу ориентирую по стоимости по описанию симптомов. Финальная сумма не растет в процессе.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div><strong>Работаю в 5 городах:</strong> Дзержинск, Фаниполь, Сморгонь, Воложин, Молодечно и прилегающие районы.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Ответы на частые вопросы</h2>
+            <p class="section-subtitle">Всё, что нужно знать о выезде, диагностике и гарантии</p>
+            
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>В какое время можно оставить заявку и когда вы приезжаете?</summary>
+                    <p>Форма приема заявок на сайте работает круглосуточно (24/7). Вы можете оставить заявку в любое удобное время. Обработка звонков и выезды мастера осуществляются ежедневно с 9:00 до 20:00. Я свяжусь с вами в ближайшее рабочее время для согласования деталей.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>В каких городах вы работаете?</summary>
+                    <p>Я работаю в пяти городах: Дзержинск, Фаниполь, Сморгонь, Воложин и Молодечно, а также в прилегающих населенных пунктах. При оформлении заявки укажите ваш город — мы согласуем удобное время приезда.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Сколько стоит диагностика и меняется ли цена в процессе?</summary>
+                    <p>При согласии на ремонт диагностика проводится бесплатно. Точную стоимость работы и запчастей я называю до начала ремонта после осмотра техники, и эта сумма фиксируется — никаких скрытых доплат в процессе нет.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Нужна ли предоплата за выезд или запчасти?</summary>
+                    <p>Предоплата не требуется. Все необходимые для ремонта запчасти я привожу с собой. Оплата производится только после полного завершения ремонта и совместной проверки стиральной машины в работе.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Какую гарантию вы даете на выполненный ремонт?</summary>
+                    <p>По окончании ремонта и проверки машинки я оформляю гарантийный талон на выполненные работы и установленные комплектующие.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты и форма -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Вызвать частного мастера</h2>
+            <p class="section-subtitle">Оставьте заявку с указанием вашего города. Я свяжусь с вами, уточню симптомы и согласую удобное время приезда.</p>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" placeholder="Иван" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+375 (29) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">Город</label>
+                    <input type="text" id="city" name="city" placeholder="Дзержинск, Фаниполь, Сморгонь, Воложин или Молодечно" required>
+                </div>
+                <div class="form-group">
+                    <label for="problem">Описание проблемы (необязательно)</label>
+                    <textarea id="problem" name="problem" placeholder="Например: не сливает воду, гудит при отжиме"></textarea>
+                </div>
+                <button type="submit" class="btn">
+                    <i class="fa-solid fa-paper-plane"></i> Отправить заявку
+                </button>
+                <p class="form-note">
+                    <i class="fa-solid fa-clock"></i> Прием заявок на сайте: 24/7. Обработка и звонки: с 9:00 до 20:00
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-schedule">
+                <i class="fa-solid fa-clock"></i>
+                Прием заявок на сайте: 24/7 &nbsp;|&nbsp; Обработка звонков и выезды: ежедневно с 9:00 до 20:00
+            </div>
+            <div class="footer-cities">
+                <i class="fa-solid fa-location-dot"></i>
+                Дзержинск • Фаниполь • Сморгонь • Воложин • Молодечно
+            </div>
+            <p><strong>Частный мастер по ремонту стиральных машин</strong></p>
+            <p style="margin-top: 16px; opacity: 0.6;">&copy; 2024 Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Плавающая кнопка звонка для мобильных -->
+    <a href="tel:+375295507818" class="floating-call" title="Позвонить мастеру">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <!-- Скрипт эффекта шапки при скролле -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
